@@ -2,13 +2,13 @@
 
 [English](README.md) · [Validation](docs/VALIDATION.md) · [Licence MIT](LICENSE)
 
-Portage communautaire de **Mimic 1.2.38** vers Minecraft Java **26.3** avec Fabric, en français et en anglais. Les Mimics se déguisent en coffres, stockent des objets, attaquent les joueurs curieux et peuvent être verrouillés ou apprivoisés.
+**Mimic 1.0**, portage communautaire vers Minecraft Java **26.3** avec Fabric, en français et en anglais. Les Mimics se déguisent en coffres, stockent des objets, attaquent les joueurs curieux et peuvent être verrouillés ou apprivoisés.
 
 Le mod et le code d'origine sont de **Luke Graham Landry**. Les modèles, textures et animations d'origine sont crédités à **Redrix** et **EpicNecromancer1**. Ce dépôt maintient un portage communautaire sans revendiquer la création du travail original ni une approbation de ses auteurs.
 
 ## État
 
-Version **1.2.38-port.1**. La compilation, sept GameTests serveur Mimic plus le test témoin Minecraft, ainsi qu'un parcours client automatisé bilingue ont réussi dans l'environnement de développement. Le JAR construit a également passé les tests serveur avec le lanceur Fabric indépendant. Voir [les validations et limites](docs/VALIDATION.md).
+Version **1.0**. La compilation, sept GameTests serveur Mimic plus le test témoin Minecraft, ainsi qu'un parcours client automatisé bilingue ont réussi dans l'environnement de développement. Le JAR construit a également passé les tests serveur avec le lanceur Fabric indépendant. Voir [les validations et limites](docs/VALIDATION.md).
 
 Cette première publication contient les sources, sans release binaire. La compatibilité avec les modpacks tiers et la migration automatique des inventaires Mimic de Minecraft 1.19.1 ne sont pas validées. Aucun convertisseur de cet ancien format n'est fourni.
 
@@ -22,7 +22,7 @@ Cette première publication contient les sources, sans release binaire. La compa
 | Fabric API | 0.164.0+26.3 |
 | GeckoLib | **5.5.7 pour Fabric 26.3** |
 
-Compiler le mod, puis copier le JAR principal de `build/libs/` dans le dossier `mods/` de l'instance avec Fabric API et [GeckoLib 5.5.7 Fabric 26.3 exact](https://modrinth.com/mod/geckolib/version/kSxHvs99). En multijoueur, installer ces mods sur le serveur et les clients. Les fichiers `-sources.jar` et `-testmod.jar` ne sont pas le mod jouable. Choisir Français (France) ou English (US) dans la langue de Minecraft.
+Compiler le mod, puis copier `mimic-fabric-26.3-1.0.jar` de `build/libs/` dans le dossier `mods/` de l'instance avec Fabric API et [GeckoLib 5.5.7 Fabric 26.3 exact](https://modrinth.com/mod/geckolib/version/kSxHvs99). En multijoueur, installer ces mods sur le serveur et les clients. Les fichiers `-sources.jar` et `-testmod.jar` ne sont pas le mod jouable. Choisir Français (France) ou English (US) dans la langue de Minecraft.
 
 Utiliser une instance de test séparée et sauvegarder les mondes avant de tester le portage avec des sauvegardes existantes.
 

@@ -1,7 +1,7 @@
 plugins {
     id 'net.fabricmc.fabric-loom' version '1.17.21'
 }
-version = '1.2.38-port.1'
+version = project.mod_version
 group = 'ca.lukegrahamlandry.mimic'
 repositories { maven { url = 'https://api.modrinth.com/maven' } }
 loom {

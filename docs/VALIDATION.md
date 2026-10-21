@@ -2,7 +2,9 @@
 
 ## English
 
-Development validation reported for version `1.2.38-port.1` with Minecraft 26.3, Java 25, Fabric Loader 0.19.5, Fabric API 0.164.0+26.3 and GeckoLib 5.5.7:
+Development validation reported for version `1.0` with Minecraft 26.3, Java 25, Fabric Loader 0.19.5, Fabric API 0.164.0+26.3 and GeckoLib 5.5.7:
+
+The 1.0 rebuild passed all eight server tests, the bilingual client scenario with JEI installed, and the standalone Fabric server test using the rebuilt JAR. The previous build and 1.0 JAR differ only in the embedded `fabric.mod.json` version metadata; gameplay code and assets are unchanged. The distributed file is `mimic-fabric-26.3-1.0.jar` (73,756 bytes), SHA-256 `d44a8ccb97bfb4eeffb940170e2238740a6b65c0ff72c42b359e464234a8bb20`.
 
 - Build and translation verification passed: the same seven translation keys are covered in English and French.
 - Seven Mimic server GameTests and the Minecraft control test passed.
@@ -21,7 +23,9 @@ The publication staging copy was also compiled successfully with `build compileG
 
 ## Français
 
-Validation de développement rapportée pour `1.2.38-port.1` avec Minecraft 26.3, Java 25, Fabric Loader 0.19.5, Fabric API 0.164.0+26.3 et GeckoLib 5.5.7 :
+Validation de développement rapportée pour `1.0` avec Minecraft 26.3, Java 25, Fabric Loader 0.19.5, Fabric API 0.164.0+26.3 et GeckoLib 5.5.7 :
+
+La reconstruction 1.0 a passé les huit tests serveur, le parcours client bilingue avec JEI installé et les tests du serveur Fabric indépendant utilisant le nouveau JAR. Seule la version des métadonnées embarquées dans `fabric.mod.json` diffère du JAR précédent ; le gameplay et les ressources sont inchangés. Le fichier livré est `mimic-fabric-26.3-1.0.jar` (73 756 octets), SHA-256 `d44a8ccb97bfb4eeffb940170e2238740a6b65c0ff72c42b359e464234a8bb20`.
 
 - Compilation et vérification des sept clés de traduction réussies, avec la même couverture française et anglaise.
 - Sept GameTests serveur Mimic et le test témoin Minecraft réussis.
