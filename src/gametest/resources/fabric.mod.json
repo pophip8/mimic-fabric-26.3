@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "mimic-test",
+  "version": "1.0.0",
+  "name": "Mimic port integration tests",
+  "environment": "*",
+  "license": "MIT",
+  "entrypoints": {
+    "fabric-gametest": ["ca.lukegrahamlandry.mimic.test.MimicTests"],
+    "fabric-client-gametest": ["ca.lukegrahamlandry.mimic.test.MimicClientTest"]
+  }
+}

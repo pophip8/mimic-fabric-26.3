@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:gold_ingot",
+    "minecraft:iron_chain"
+  ],
+  "result": {
+    "id": "mimic:mimic_lock",
+    "count": 1
+  }
+}

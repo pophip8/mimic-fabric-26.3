@@ -1,0 +1,11 @@
+{
+  "item.mimic.mimic_key": "Mimic Key",
+  "item.mimic.mimic_lock": "Mimic Lock",
+  "item.mimic.mimic_spawn_egg": "Mimic Spawn Egg",
+  "item.mimic.fake_chest": "Mimic Heart",
+
+  "entity.mimic.mimic": "Mimic",
+  "block.mimic.mimic_lock": "Mimic Spawn Marker",
+
+  "mimic.no_open_standing": "Only sitting mimics may be opened."
+}

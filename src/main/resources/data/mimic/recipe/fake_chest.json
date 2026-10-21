@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "gsi",
+    "bcr",
+    "peo"
+  ],
+  "key": {
+    "i": "minecraft:iron_block",
+    "g": "minecraft:gold_block",
+    "s": "minecraft:fermented_spider_eye",
+    "b": "minecraft:nether_wart",
+    "c": "minecraft:chest",
+    "r": "minecraft:blaze_powder",
+    "e": "minecraft:ender_pearl",
+    "o": "minecraft:diamond_ore",
+    "p": "minecraft:gold_ore"
+  },
+  "result": {
+    "id": "mimic:fake_chest",
+    "count": 1
+  }
+}

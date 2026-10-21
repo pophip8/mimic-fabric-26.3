@@ -1,0 +1,41 @@
+# Build and development output
+.gradle/
+build/
+out/
+bin/
+.idea/
+.vscode/
+*.iml
+*.class
+*.log
+*.hprof
+*.lnk
+.DS_Store
+Thumbs.db
+
+# Local dependencies, exploratory tools and generated distribution
+libs/
+tools/
+upstream/
+distribution/
+validation/
+
+# Minecraft runtimes, worlds, launchers and account data
+run/
+test-environnement/
+saves/
+world/
+worlds/
+logs/
+crash-reports/
+screenshots/
+backups/
+configuration.json
+launcher*.json
+usercache.json
+usernamecache.json
+.env
+.env.*
+*.pem
+*.key
+!gradle/wrapper/gradle-wrapper.jar

@@ -1,0 +1,9 @@
+{
+  "item.mimic.mimic_key": "Clé de Mimic",
+  "item.mimic.mimic_lock": "Cadenas de Mimic",
+  "item.mimic.mimic_spawn_egg": "Œuf d’apparition de Mimic",
+  "item.mimic.fake_chest": "Cœur de Mimic",
+  "entity.mimic.mimic": "Mimic",
+  "block.mimic.mimic_lock": "Marqueur d’apparition de Mimic",
+  "mimic.no_open_standing": "Seuls les Mimics assis peuvent être ouverts."
+}

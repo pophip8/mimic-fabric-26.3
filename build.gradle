@@ -1,0 +1,93 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version '1.17.21'
+}
+version = '1.2.38-port.1'
+group = 'ca.lukegrahamlandry.mimic'
+repositories { maven { url = 'https://api.modrinth.com/maven' } }
+loom {
+    splitEnvironmentSourceSets()
+    mods { mimic { sourceSet sourceSets.main; sourceSet sourceSets.client } }
+}
+dependencies {
+    minecraft 'com.mojang:minecraft:26.3'
+    implementation 'net.fabricmc:fabric-loader:0.19.5'
+    implementation 'net.fabricmc.fabric-api:fabric-api:0.164.0+26.3'
+    // The public release has the same SHA-256 as the supplied GeckoLib JAR.
+    def suppliedGeckoLib = file('libs/geckolib-fabric-26.3-5.5.7.jar')
+    if (suppliedGeckoLib.exists() && !project.hasProperty('usePublishedGeckoLib')) {
+        implementation files(suppliedGeckoLib)
+    } else {
+        implementation 'maven.modrinth:geckolib:kSxHvs99'
+    }
+    compileOnly 'com.google.code.findbugs:jsr305:3.0.2'
+}
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') { expand version: project.version }
+}
+tasks.withType(JavaCompile).configureEach { options.release = 25; options.encoding = 'UTF-8' }
+java { withSourcesJar(); sourceCompatibility = JavaVersion.VERSION_25; targetCompatibility = JavaVersion.VERSION_25 }
+jar { from('LICENSE') }
+
+tasks.register('validateTranslations') {
+    group = 'verification'
+    description = 'Checks French/English coverage of the registered content and all literal translation keys.'
+    inputs.files(fileTree('src/main/resources/assets/mimic/lang'), fileTree('src') { include '**/*.java' })
+    doLast {
+        def parser = new groovy.json.JsonSlurper()
+        def english = parser.parse(file('src/main/resources/assets/mimic/lang/en_us.json'), 'UTF-8')
+        def french = parser.parse(file('src/main/resources/assets/mimic/lang/fr_fr.json'), 'UTF-8')
+        if (english.keySet() != french.keySet()) throw new GradleException('French and English translation keys differ')
+        def required = ['item.mimic.mimic_key', 'item.mimic.mimic_lock', 'item.mimic.fake_chest',
+                        'item.mimic.mimic_spawn_egg', 'entity.mimic.mimic', 'block.mimic.mimic_lock'] as Set
+        fileTree('src').matching { include '**/*.java' }.each { source ->
+            (source.getText('UTF-8') =~ /Component\.translatable\("(mimic\.[^"]+)"/).each { match -> required.add(match[1]) }
+        }
+        required.each { key ->
+            if (!english[key] || !french[key]) throw new GradleException("Missing translation: $key")
+        }
+        logger.lifecycle("French and English translations verified: ${english.size()} keys in each language")
+    }
+}
+check.dependsOn tasks.named('validateTranslations')
+
+fabricApi {
+    configureTests {
+        createSourceSet = true
+        modId = 'mimic-test'
+        enableGameTests = true
+        enableClientGameTests = true
+        eula = false
+    }
+}
+
+tasks.register('testModJar', Jar) {
+    dependsOn tasks.named('gametestClasses')
+    archiveClassifier = 'testmod'
+    from sourceSets.gametest.output
+}
+
+// Optional fixture generation; never loaded by the distributed Mimic mod.
+tasks.named('processGametestResources') {
+    inputs.property 'preparePlayground', project.hasProperty('preparePlayground')
+    filesMatching('fabric.mod.json') {
+        filter { line -> project.hasProperty('preparePlayground')
+                ? line.replace('MimicClientTest', 'MimicPlaygroundCreator') : line }
+    }
+}
+if (project.hasProperty('preparePlayground')) {
+    loom.runs.clientGameTest.property 'mimic.playground.marker', file('test-environnement/verification/world-source.txt').absolutePath
+}
+loom {
+    runs {
+        manualTest {
+            client()
+            configName = 'Mimic - test manuel isole'
+            runDir 'test-environnement/instance'
+            property 'fabric.modsFolder', file('test-environnement/developpement-mods').absolutePath
+            programArgs '--username', 'Player464'
+            programArgs '--quickPlaySingleplayer', 'Laboratoire Mimic 26.3'
+        }
+    }
+}
+

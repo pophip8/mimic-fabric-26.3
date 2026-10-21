@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "igg",
+    "   "
+  ],
+  "key": {
+    "i": "minecraft:netherite_scrap",
+    "g": "minecraft:gold_ingot"
+  },
+  "result": {
+    "id": "mimic:mimic_key",
+    "count": 1
+  }
+}

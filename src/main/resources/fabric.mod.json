@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "mimic",
+  "version": "${version}",
+  "name": "Mimic",
+  "description": "A stealthy mimic mob that pretends to be a chest.",
+  "authors": [
+    "LukeGrahamLandry#6888"
+  ],
+  "contact": {
+    "homepage": "https://moddingtutorials.org/commissions",
+    "sources": "https://github.com/LukeGrahamLandry/mimic-mod"
+  },
+  "license": "MIT",
+  "icon": "assets/mimic/textures/item/mimic_key.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "ca.lukegrahamlandry.mimic.ModMain"
+    ],
+    "client": [
+      "ca.lukegrahamlandry.mimic.client.ClientSetup"
+    ]
+  },
+  "mixins": [
+    "mimic.mixins.json"
+  ],
+  "depends": {
+    "geckolib": "5.5.7",
+    "minecraft": "26.3",
+    "fabricloader": ">=0.19.5",
+    "java": ">=25",
+    "fabric-api": ">=0.164.0+26.3"
+  }
+}
